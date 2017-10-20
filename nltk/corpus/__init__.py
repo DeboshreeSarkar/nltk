@@ -159,6 +159,10 @@ opinion_lexicon = LazyCorpusLoader(
     encoding='ISO-8859-2')
 ppattach = LazyCorpusLoader(
     'ppattach', PPAttachmentCorpusReader, ['training', 'test', 'devset'])
+product_review = LazyCorpusLoader(
+    'product_review', CategorizedPlaintextCorpusReader,
+    r'(?!\.).*\.txt', cat_pattern=r'(neg|pos)/.*',
+    encoding='ascii')
 product_reviews_1 = LazyCorpusLoader(
     'product_reviews_1', ReviewsCorpusReader, r'^(?!Readme).*\.txt', encoding='utf8')
 product_reviews_2 = LazyCorpusLoader(
